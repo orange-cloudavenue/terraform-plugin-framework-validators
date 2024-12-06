@@ -7,7 +7,7 @@ It will be used into the `Validators` field of the `schema.BoolAttribute` struct
 
 ```go
 import (
-    fboolvalidator "github.com/FrangipaneTeam/terraform-plugin-framework-validators/boolvalidator"
+    fboolvalidator "github.com/orange-cloudavenue/terraform-plugin-framework-validators/boolvalidator"
 )
 ```
 

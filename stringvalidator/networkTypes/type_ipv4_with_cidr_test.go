@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	networktypes "github.com/FrangipaneTeam/terraform-plugin-framework-validators/stringvalidator/networkTypes"
+	networktypes "github.com/orange-cloudavenue/terraform-plugin-framework-validators/stringvalidator/networkTypes"
 )
 
 func TestValidIPV4WithCIDRValidator(t *testing.T) {

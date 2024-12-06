@@ -7,7 +7,7 @@ It will be used into the `Validators` field of the `schema.MapAttribute` struct.
 
 ```go
 import (
-    fmapvalidator "github.com/FrangipaneTeam/terraform-plugin-framework-validators/mapvalidator"
+    fmapvalidator "github.com/orange-cloudavenue/terraform-plugin-framework-validators/mapvalidator"
 )
 ```
 

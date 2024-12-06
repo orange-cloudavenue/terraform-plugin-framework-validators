@@ -7,7 +7,7 @@ It will be used into the `Validators` field of the `schema.StringAttribute` stru
 
 ```go
 import (
-    fstringvalidator "github.com/FrangipaneTeam/terraform-plugin-framework-validators/stringvalidator"
+    fstringvalidator "github.com/orange-cloudavenue/terraform-plugin-framework-validators/stringvalidator"
 )
 ```
 

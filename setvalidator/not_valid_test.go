@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/FrangipaneTeam/terraform-plugin-framework-validators/setvalidator"
+	"github.com/orange-cloudavenue/terraform-plugin-framework-validators/setvalidator"
 )
 
 func TestNotValidator(t *testing.T) {

@@ -3,7 +3,7 @@ package stringvalidator
 import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 
-	"github.com/FrangipaneTeam/terraform-plugin-framework-validators/stringvalidator/common"
+	"github.com/orange-cloudavenue/terraform-plugin-framework-validators/stringvalidator/common"
 )
 
 // PrefixContainsValidator is a validator which ensures that the configured attribute
