@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
 
-	"github.com/FrangipaneTeam/terraform-plugin-framework-validators/internal"
+	"github.com/orange-cloudavenue/terraform-plugin-framework-validators/internal"
 )
 
 func TestNullIfAttributeIsSetOneOfValidator(t *testing.T) {

@@ -7,7 +7,7 @@ It will be used into the `Validators` field of the `schema.ListAttribute` struct
 
 ```go
 import (
-    flistvalidator "github.com/FrangipaneTeam/terraform-plugin-framework-validators/listvalidator"
+    flistvalidator "github.com/orange-cloudavenue/terraform-plugin-framework-validators/listvalidator"
 )
 ```
 

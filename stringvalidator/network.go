@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 
-	networkTypes "github.com/FrangipaneTeam/terraform-plugin-framework-validators/stringvalidator/networkTypes"
+	networkTypes "github.com/orange-cloudavenue/terraform-plugin-framework-validators/stringvalidator/networkTypes"
 )
 
 var _ validator.String = networkValidator{}
