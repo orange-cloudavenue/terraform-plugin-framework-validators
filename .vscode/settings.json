@@ -1,7 +1,7 @@
 {
     "gopls": {
         "ui.semanticTokens": true,
-        "formatting.local": "github.com/FrangipaneTeam/terraform-plugin-framework-validators",
+        "formatting.local": "github.com/orange-cloudavenue/terraform-plugin-framework-validators",
     },
     "go.lintTool": "golangci-lint",
     "go.lintFlags": [

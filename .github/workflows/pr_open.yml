@@ -1,0 +1,26 @@
+name: PR Open
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.head_ref }}-changelog
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  changelog-dependabot:
+    name: "Changelog Dependabot"
+    uses: orange-cloudavenue/workflows/.github/workflows/changelog_dependabot.yml@main
+    secrets:
+        TOKEN: ${{ secrets.CHANGELOG_PAT }}
+        
+  golang-ci-lint:
+    name: "Lint"
+    uses: orange-cloudavenue/workflows/.github/workflows/go_golangci-lint.yml@main
+
+  tests:
+    name: "Unit Tests"
+    uses: orange-cloudavenue/workflows/.github/workflows/go_unit-test.yml@main

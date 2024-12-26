@@ -7,7 +7,7 @@ It will be used into the `Validators` field of the `schema.SetAttribute` struct.
 
 ```go
 import (
-    fsetvalidator "github.com/FrangipaneTeam/terraform-plugin-framework-validators/setvalidator"
+    fsetvalidator "github.com/orange-cloudavenue/terraform-plugin-framework-validators/setvalidator"
 )
 ```
 
