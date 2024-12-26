@@ -41,5 +41,5 @@ markdown_extensions:
   - pymdownx.superfences
   - attr_list
 
-repo_url: https://github.com/FrangipaneTeam/terraform-plugin-framework-validators
-repo_name: FrangipaneTeam/terraform-plugin-framework-validators
+repo_url: https://github.com/orange-cloudavenue/terraform-plugin-framework-validators
+repo_name: orange-cloudavenue/terraform-plugin-framework-validators

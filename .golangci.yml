@@ -78,7 +78,7 @@ linters:
 
 linters-settings:
   goimports:
-    local-prefixes: github.com/FrangipaneTeam/terraform-plugin-framework-validators
+    local-prefixes: github.com/orange-cloudavenue/terraform-plugin-framework-validators
 
   gci:
     # Section configuration to compare against.
@@ -89,7 +89,7 @@ linters-settings:
     sections:
       - standard # Standard section: captures all standard packages.
       - default # Default section: contains all imports that could not be matched to another section type.
-      - prefix(github.com/FrangipaneTeam/terraform-plugin-framework-validators) # Custom section: groups all imports with the specified Prefix.
+      - prefix(github.com/orange-cloudavenue/terraform-plugin-framework-validators) # Custom section: groups all imports with the specified Prefix.
       - blank # Blank section: contains all blank imports. This section is not present unless explicitly enabled.
       - dot # Dot section: contains all dot imports. This section is not present unless explicitly enabled.
     skip-generated: true
@@ -98,7 +98,7 @@ linters-settings:
   gofumpt:
     # Module path which contains the source code being formatted.
     # Default: ""
-    module-path: github.com/FrangipaneTeam/terraform-plugin-framework-validators
+    module-path: github.com/orange-cloudavenue/terraform-plugin-framework-validators
     # Choose whether to use the extra rules.
     # Default: false
     extra-rules: true
@@ -130,4 +130,4 @@ linters-settings:
         allow:
           - $gostd
           - github.com/hashicorp
-          - github.com/FrangipaneTeam
+          - github.com/orange-cloudavenue

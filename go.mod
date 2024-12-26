@@ -1,4 +1,4 @@
-module github.com/FrangipaneTeam/terraform-plugin-framework-validators
+module github.com/orange-cloudavenue/terraform-plugin-framework-validators
 
 go 1.22.0
 

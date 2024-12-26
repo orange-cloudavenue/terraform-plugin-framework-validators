@@ -7,7 +7,7 @@ It will be used into the `Validators` field of the `schema.Int64Attribute` struc
 
 ```go
 import (
-    fint64validator "github.com/FrangipaneTeam/terraform-plugin-framework-validators/int64validator"
+    fint64validator "github.com/orange-cloudavenue/terraform-plugin-framework-validators/int64validator"
 )
 ```
 

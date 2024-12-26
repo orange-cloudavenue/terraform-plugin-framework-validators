@@ -2,5 +2,5 @@
 `stringvalidator/IsNetwork` - This is a new generic validator that checks if the value is a valid network format. Currently there is 4 formats that are supported: `IPV4`, `IPV4WithCIDR`, `IPV4WithNetmask` and `RFC1918`.
 ```
 ```release-note:note
-`stringvalidator/IsIP` - This validator is now deprecated and will be removed in the release [**v1.11**](https://github.com/FrangipaneTeam/terraform-plugin-framework-validators/milestone/4). Please use `stringvalidator/IsNetwork` instead.
+`stringvalidator/IsIP` - This validator is now deprecated and will be removed in the release [**v1.11**](https://github.com/orange-cloudavenue/terraform-plugin-framework-validators/milestone/4). Please use `stringvalidator/IsNetwork` instead.
 ```
