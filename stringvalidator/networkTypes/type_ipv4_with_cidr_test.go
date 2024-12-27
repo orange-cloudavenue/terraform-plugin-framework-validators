@@ -59,7 +59,6 @@ func TestValidIPV4WithCIDRValidator(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			request := validator.StringRequest{
@@ -93,7 +92,6 @@ func TestValidIPV4WithCIDRValidatorDescription(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			validator := networktypes.IsIPV4WithCIDR()
@@ -118,7 +116,6 @@ func TestValidIPV4WithCIDRValidatorMarkdownDescription(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			validator := networktypes.IsIPV4WithCIDR()

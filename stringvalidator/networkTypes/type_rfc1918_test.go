@@ -53,7 +53,6 @@ func TestValidRFC1918Validator(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			request := validator.StringRequest{
@@ -87,7 +86,6 @@ func TestValidRFC1918ValidatorDescription(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			validator := networktypes.IsRFC1918()
@@ -112,7 +110,6 @@ func TestValidRFC1918ValidatorMarkdownDescription(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			validator := networktypes.IsRFC1918()
