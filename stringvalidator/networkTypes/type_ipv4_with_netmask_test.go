@@ -59,7 +59,6 @@ func TestValidIPV4WithNetmaskValidator(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			request := validator.StringRequest{
@@ -93,7 +92,6 @@ func TestValidIPV4WithNetmaskValidatorDescription(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			validator := networktypes.IsIPV4WithNetmask()
@@ -118,7 +116,6 @@ func TestValidIPV4WithNetmaskValidatorMarkdownDescription(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			validator := networktypes.IsIPV4WithNetmask()

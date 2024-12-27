@@ -43,7 +43,6 @@ func TestValidIPV4Validator(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			request := validator.StringRequest{
@@ -77,7 +76,6 @@ func TestValidIPV4ValidatorDescription(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			validator := networktypes.IsIPV4()
@@ -102,7 +100,6 @@ func TestValidIPV4ValidatorMarkdownDescription(t *testing.T) {
 	}
 
 	for name, test := range tests {
-		name, test := name, test
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			validator := networktypes.IsIPV4()
