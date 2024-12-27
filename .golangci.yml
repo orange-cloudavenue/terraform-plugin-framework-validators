@@ -1,3 +1,8 @@
+# Visit https://golangci-lint.run/ for usage documentation
+# and information on other useful linters
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
 
 linters:
   enable:
@@ -89,7 +94,14 @@ linters-settings:
     sections:
       - standard # Standard section: captures all standard packages.
       - default # Default section: contains all imports that could not be matched to another section type.
-      - prefix(github.com/orange-cloudavenue/terraform-plugin-framework-validators) # Custom section: groups all imports with the specified Prefix.
+      - prefix(github.com/vmware)
+      - prefix(github.com/hashicorp/terraform-plugin-framework/)
+      - prefix(github.com/hashicorp/terraform-plugin-framework/resource,github.com/hashicorp/terraform-plugin-framework/datasource)
+      - prefix(github.com/hashicorp/terraform-plugin-framework/resource/schema/,github.com/hashicorp/terraform-plugin-framework/datasource/schema/)
+      - prefix(github.com/hashicorp/terraform-plugin-framework-validators/)
+      - prefix(github.com/hashicorp)
+      - prefix(github.com/FrangipaneTeam)
+      - prefix(github.com/orange-cloudavenue/terraform-plugin-framework-validators,github.com/orange-cloudavenue/cloudavenue-sdk-go,github.com/orange-cloudavenue/infrapi-sdk-go)
       - blank # Blank section: contains all blank imports. This section is not present unless explicitly enabled.
       - dot # Dot section: contains all dot imports. This section is not present unless explicitly enabled.
     skip-generated: true
@@ -103,31 +115,72 @@ linters-settings:
     # Default: false
     extra-rules: true
 
-  depguard:
-    # Rules to apply.
-    #
-    # Variables:
-    # - File Variables
-    #   you can still use and exclamation mark ! in front of a variable to say not to use it.
-    #   Example !$test will match any file that is not a go test file.
-    #
-    #   `$all` - matches all go files
-    #   `$test` - matches all go test files
-    #
-    # - Package Variables
-    #
-    #  `$gostd` - matches all of go's standard library (Pulled from `GOROOT`)
-    #
-    # Default: no rules.
+  revive:
+    ignore-generated-header: true
+    severity: error
     rules:
-      # Name of a rule.
-      main:
-        # List of file globs that will match this list of settings to compare against.
-        # Default: $all
-        files:
-          - "!$test"
-        # List of allowed packages.
-        allow:
-          - $gostd
-          - github.com/hashicorp
-          - github.com/orange-cloudavenue
+      - name: exported
+        severity: warning
+        disabled: false
+      - name: indent-error-flow
+        severity: warning
+        disabled: false
+      - name: var-naming
+        severity: warning
+        disabled: false
+        arguments:
+          # List Bypass rules
+          - []
+          # List force rules
+          - [
+              # Default rules
+              "ACL",
+              "API",
+              "ASCII",
+              "CPU",
+              "CSS",
+              "DNS",
+              "EOF",
+              "GUID",
+              "HTML",
+              "HTTP",
+              "HTTPS",
+              "ID",
+              "IP",
+              "JSON",
+              "LHS",
+              "QPS",
+              "RAM",
+              "RHS",
+              "RPC",
+              "SLA",
+              "SMTP",
+              "SQL",
+              "SSH",
+              "TCP",
+              "TLS",
+              "TTL",
+              "UDP",
+              "UI",
+              "UID",
+              "UUID",
+              "URI",
+              "URL",
+              "UTF8",
+              "VM",
+              "XML",
+              "XMPP",
+              "XSRF",
+              "XSS",
+              # Custom rules
+              "VDC",
+              "DFW",
+              "VLAN",
+              "IAM",
+              "VCDA",
+              "NAT",
+              "VPN",
+              "BMS",
+              "SAML",
+              "VDCG"
+            ] 
