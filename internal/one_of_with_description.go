@@ -5,12 +5,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/terraform-plugin-framework-validators/helpers/validatordiag"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/tfsdk"
+
+	"github.com/hashicorp/terraform-plugin-framework-validators/helpers/validatordiag"
 )
 
 const oneOfWithDescriptionValidatorDescription = "Value must be one of:"

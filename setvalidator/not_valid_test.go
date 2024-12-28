@@ -4,10 +4,11 @@ import (
 	"context"
 	"testing"
 
-	hsetvalidator "github.com/hashicorp/terraform-plugin-framework-validators/setvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+
+	hsetvalidator "github.com/hashicorp/terraform-plugin-framework-validators/setvalidator"
 
 	"github.com/orange-cloudavenue/terraform-plugin-framework-validators/setvalidator"
 )

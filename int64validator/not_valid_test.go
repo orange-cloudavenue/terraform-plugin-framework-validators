@@ -4,9 +4,10 @@ import (
 	"context"
 	"testing"
 
-	hint64validator "github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+
+	hint64validator "github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 
 	"github.com/orange-cloudavenue/terraform-plugin-framework-validators/int64validator"
 )

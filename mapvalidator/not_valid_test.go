@@ -4,10 +4,11 @@ import (
 	"context"
 	"testing"
 
-	hmapvalidator "github.com/hashicorp/terraform-plugin-framework-validators/mapvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+
+	hmapvalidator "github.com/hashicorp/terraform-plugin-framework-validators/mapvalidator"
 
 	"github.com/orange-cloudavenue/terraform-plugin-framework-validators/mapvalidator"
 )
