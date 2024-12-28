@@ -1,4 +1,5 @@
-## 1.10.0 (Unreleased)
+## 1.11.0 (Unreleased)
+## 1.10.0 (December 28, 2024)
 ### :information_source: **Notes**
 
 * `core` - The `FrangipaneTeam/terraform-plugin-framework-validators`  has been renamed to `orange-cloudavenue/terraform-plugin-framework-validators`. The plugin has been moved to be under the `orange-cloudavenue` organization. (GH-2)
