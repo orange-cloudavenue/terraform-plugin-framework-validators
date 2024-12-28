@@ -120,6 +120,7 @@ linters-settings:
     # Default: false
     extra-rules: true
 
+
   revive:
     ignore-generated-header: true
     severity: error
