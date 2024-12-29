@@ -23,7 +23,7 @@ jobs:
     secrets:
       TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  changelog-validation
+  changelog-validation:
     name: "Changelog Validation"
     uses: orange-cloudavenue/workflows/.github/workflows/changelog_validation.yml@main
     secrets:
