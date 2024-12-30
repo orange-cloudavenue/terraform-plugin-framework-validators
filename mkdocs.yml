@@ -1,4 +1,4 @@
-site_name: Terrafom Framework Validators
+site_name: Terraform Framework Validators
 
 theme:
   name: material
@@ -28,6 +28,7 @@ nav:
   - List: "listvalidator/index.md"
   - Set: "setvalidator/index.md"
   - Map: "mapvalidator/index.md"
+  - Object: "objectvalidator/index.md"
   - ⇗ Other projects: "https://orange-cloudavenue.github.io/projects"
 
 

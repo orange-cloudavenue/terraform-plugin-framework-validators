@@ -15,6 +15,7 @@ var (
 	_ validator.List   = NotValidator{}
 	_ validator.Bool   = NotValidator{}
 	_ validator.Map    = NotValidator{}
+	_ validator.Object = NotValidator{}
 )
 
 // NotValidator validates that value does not validate against the value validator.
@@ -29,6 +30,7 @@ type NotValidator struct {
 	ListValidator   validator.List
 	BoolValidator   validator.Bool
 	MapValidator    validator.Map
+	ObjectValidator validator.Object
 }
 
 // Description describes the validation in plain text formatting.
@@ -176,5 +178,28 @@ func (v NotValidator) ValidateMap(ctx context.Context, req validator.MapRequest,
 		req.Path,
 		"Invalid not condition",
 		fmt.Sprintf("NOT %s", v.MapValidator.Description(ctx)),
+	)
+}
+
+// Validate performs the validation.
+// The validator will pass if it encounters a value validator that returns no errors and will then return any warnings
+// from the passing validator. Using All validator as value validators will pass if all the validators supplied in an
+// All validator pass.
+func (v NotValidator) ValidateObject(ctx context.Context, req validator.ObjectRequest, resp *validator.ObjectResponse) {
+	vResp := &validator.ObjectResponse{
+		Diagnostics: diag.Diagnostics{},
+	}
+
+	v.ObjectValidator.ValidateObject(ctx, req, vResp)
+
+	// If there was an error then the not condition is true, simply return
+	if vResp.Diagnostics.HasError() {
+		return
+	}
+
+	resp.Diagnostics.AddAttributeError(
+		req.Path,
+		"Invalid not condition",
+		fmt.Sprintf("NOT %s", v.ObjectValidator.Description(ctx)),
 	)
 }
