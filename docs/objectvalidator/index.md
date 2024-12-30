@@ -1,6 +1,6 @@
 # ObjectValidator
 
-Object validator are used to validate the plan of a object attribute.
+Object validator are used to validate the plan of an object attribute.
 It will be used into the `Validators` field of the `schema.ObjectAttribute` struct.
 
 ## How to use it
