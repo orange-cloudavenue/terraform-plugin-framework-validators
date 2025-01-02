@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `NullIfAttributeIsOneOf`
 
 !!! quote inline end "Released in v1.6.0"

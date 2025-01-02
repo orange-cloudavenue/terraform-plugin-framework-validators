@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # ListValidator
 
 List validator are used to validate the plan of a list attribute.

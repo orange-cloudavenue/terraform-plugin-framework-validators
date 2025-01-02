@@ -1,3 +1,8 @@
+---
+hide:
+    - navigation
+---
+
 # Int64Validator
 
 Int64 validator are used to validate the plan of a int64 attribute.

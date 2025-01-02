@@ -1,3 +1,8 @@
+---
+hide:
+    - navigation
+---
+
 # `AttributeIsDivisibleByAnInteger`
 
 !!! quote inline end "Released in v1.4.0"

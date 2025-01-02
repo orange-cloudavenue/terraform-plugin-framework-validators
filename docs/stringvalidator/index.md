@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # StringValidator
 
 String validator are used to validate the plan of a string attribute.

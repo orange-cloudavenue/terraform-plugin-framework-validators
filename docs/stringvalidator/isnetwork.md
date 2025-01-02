@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `IsNetwork`
 
 !!! quote inline end "Released in v1.8.0"

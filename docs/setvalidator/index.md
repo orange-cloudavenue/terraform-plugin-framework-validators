@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # SetValidator
 
 Set validator are used to validate the plan of a set attribute.
