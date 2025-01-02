@@ -22,8 +22,12 @@ This repository contains the validators for the Terraform Plugin Framework.
 
 ## Installation
 
-For installing the plan modifiers, you can use the `go get` command:
+For installing the validators, you can use the `go get` command:
 
 ```sh
 go get github.com/orange-cloudavenue/terraform-plugin-framework-validators@latest
 ```
+
+## Documentation
+
+For more information about the plan modifiers, please refer to the [documentation](https://orange-cloudavenue.github.io/terraform-plugin-framework-validators/).
