@@ -1,4 +1,8 @@
-# `OneOfWithDescription`
+---
+hide:
+    - navigation
+---
+# `OneOfWithDescriptionIfAttributeIsOneOf`
 
 !!! quote inline end "Released in v1.9.0"
 

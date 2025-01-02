@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `IsUUID`
 
 !!! quote inline end "Released in v1.1.0"

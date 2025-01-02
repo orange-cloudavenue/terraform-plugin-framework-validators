@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `RequireIfAttributeIsOneOf`
 
 !!! quote inline end "Released in v1.3.0"

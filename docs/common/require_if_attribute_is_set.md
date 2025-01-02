@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `RequireIfAttributeIsSet`
 
 !!! quote inline end "Released in v1.8.0"

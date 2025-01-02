@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `OneOfWithDescription`
 
 !!! quote inline end "Released in v1.5.0"

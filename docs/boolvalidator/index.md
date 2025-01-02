@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # BoolValidator
 
 Bool validator are used to validate the plan of a boolean attribute.

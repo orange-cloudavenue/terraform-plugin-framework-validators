@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # MapValidator
 
 Map validator are used to validate the plan of a map attribute.

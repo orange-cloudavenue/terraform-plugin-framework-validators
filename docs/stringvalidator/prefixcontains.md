@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `PrefixContains`
 
 !!! quote inline end "Released in v1.7.0"

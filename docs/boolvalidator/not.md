@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `Not`
 
 !!! quote inline end "Released in v1.0.0"
@@ -18,4 +22,3 @@ func (r *xResource) Schema(ctx context.Context, _ resource.SchemaRequest, resp *
                     fstringvalidator.Not(fstringvalidator.IsValidIP())
                 },
             },
-```

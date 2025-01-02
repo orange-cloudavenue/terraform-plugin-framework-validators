@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `IsMacAddress`
 
 !!! quote inline end "Released in v1.2.0"

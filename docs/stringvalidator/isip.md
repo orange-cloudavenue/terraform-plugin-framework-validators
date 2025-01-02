@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `IsIP`
 
 !!! danger inline end "Deprecated"

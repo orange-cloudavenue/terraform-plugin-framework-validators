@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `ZeroRemainder`
 
 !!! quote inline end "Released in v1.4.0"

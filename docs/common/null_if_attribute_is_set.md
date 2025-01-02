@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `NullIfAttributeIsSet`
 
 !!! quote inline end "Released in v1.8.0"
