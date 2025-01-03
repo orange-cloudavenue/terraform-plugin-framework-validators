@@ -1,0 +1,3 @@
+```release-note:feature
+`objectvalidator` - Add common validators (`Not`, `NullIfAttributeIsOneOf`, `NullIfAttributeIsSet`, `RequireIfAttributeIsOneOf`, `RequireIfAttributeIsSet`) for the Object type.
+```

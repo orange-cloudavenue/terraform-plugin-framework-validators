@@ -18,5 +18,6 @@ This repository contains a collections of validators for the Terraform Plugin Fr
 - [:fontawesome-solid-flag: **List Validators**](ListValidator/index.md)
 - [:fontawesome-solid-flag: **Map Validators**](mapvalidator/index.md)
 - [:fontawesome-solid-flag: **Set Validators**](setvalidator/index.md)
+- [:fontawesome-solid-flag: **Object Validators**](objectvalidator/index.md)
 
 </div>
