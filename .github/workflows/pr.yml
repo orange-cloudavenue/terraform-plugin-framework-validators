@@ -6,7 +6,9 @@
 name: PR All events
 
 on:
-  pull_request:
+  pull_request_target:
+    types: [ synchronize ]
+
 
 concurrency:
   group: ${{ github.ref }}-${{ github.head_ref }}-changelog
