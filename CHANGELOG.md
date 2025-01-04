@@ -1,4 +1,9 @@
 ## 1.11.0 (Unreleased)
+
+### :rocket: **New Features**
+
+* `objectvalidator` - Add common validators (`Not`, `NullIfAttributeIsOneOf`, `NullIfAttributeIsSet`, `RequireIfAttributeIsOneOf`, `RequireIfAttributeIsSet`) for the Object type. (GH-17)
+
 ## 1.10.0 (December 28, 2024)
 ### :information_source: **Notes**
 
