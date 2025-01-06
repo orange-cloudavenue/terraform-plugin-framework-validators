@@ -7,7 +7,7 @@ name: PR All events
 
 on:
   pull_request_target:
-    types: [ synchronize ]
+    types: [ opened, reopened, synchronize ]
 
 
 concurrency:
