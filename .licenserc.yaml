@@ -38,10 +38,17 @@ header: # `header` section is configurations for source codes license header.
     - ".gitignore"
     - "**/*.tmpl"
     - "**/*.tf"
-    - .changelog/*.txt"
-    - .archive/changelog/*.txt"
+    - ".changelog/"
+    - ".archive/"
+    - ".github/"
+    - ".vscode/"
     - "**/*.code-snippets"
-    - CODEOWNERS"
+    - ".github"
+    - ".pre-commit"
+    - ".licenserc.yaml"
+    - ".golangci.yml"
+    - ".pre-commit-config.yaml"
+    - "mkdocs.yml"
 
   comment: on-failure # on what condition license-eye will comment on the pull request, `on-failure`, `always`, `never`.
 
