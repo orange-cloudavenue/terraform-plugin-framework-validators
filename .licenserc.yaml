@@ -29,6 +29,7 @@ header: # `header` section is configurations for source codes license header.
     - '**/go.mod'
     - '**/go.sum'
     - 'LICENSE'
+    - 'LICENCE'
     - 'NOTICE'
     - '**/**.svg'
     - "**/zz_generated.*.go"
@@ -49,6 +50,9 @@ header: # `header` section is configurations for source codes license header.
     - ".golangci.yml"
     - ".pre-commit-config.yaml"
     - "mkdocs.yml"
+    - ".devcontainer/"
+    - ".goreleaser.yml"
+    - "examples/"
 
   comment: on-failure # on what condition license-eye will comment on the pull request, `on-failure`, `always`, `never`.
 

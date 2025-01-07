@@ -11,7 +11,7 @@ on:
 
 
 concurrency:
-  group: ${{ github.ref }}-${{ github.head_ref }}-changelog
+  group: ${{ github.ref }}-${{ github.head_ref }}-pr-all
   cancel-in-progress: true
 
 permissions:
