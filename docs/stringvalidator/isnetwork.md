@@ -6,9 +6,7 @@ hide:
 
 !!! quote inline end "Released in v1.8.0"
 
-This validator is a generic validator for checking if the string is a valid network format.
-
-Some network formats are :
+This validator is a generic validator for checking if the string respects a case.
 
 ## How to use it
 
