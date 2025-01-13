@@ -1,4 +1,9 @@
 ## 1.12.0 (Unreleased)
+
+### :rocket: **New Features**
+
+* `stringvalidator` - Add new `Cases` validator to validate string against multiple cases (Disallow Uppercase/Lowercase/Number/Space) (GH-37)
+
 ## 1.11.0 (January  4, 2025)
 
 ### :rocket: **New Features**
