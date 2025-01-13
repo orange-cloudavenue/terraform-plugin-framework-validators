@@ -55,11 +55,11 @@ func (validatorCase casesValidator) Description(_ context.Context) string {
 		description += "The value must respect the following rule : "
 	}
 
-	for i, networkType := range validatorCase.CasesTypes {
+	for i, caseType := range validatorCase.CasesTypes {
 		if i == len(validatorCase.CasesTypes)-1 {
-			description += casesTypesFunc[networkType]().Description(context.Background())
+			description += casesTypesFunc[caseType]().Description(context.Background())
 		} else {
-			description += fmt.Sprintf("%s, ", casesTypesFunc[networkType]().Description(context.Background()))
+			description += fmt.Sprintf("%s, ", casesTypesFunc[caseType]().Description(context.Background()))
 		}
 	}
 	return description
@@ -88,17 +88,17 @@ func (validatorCase casesValidator) ValidateString(
 		return
 	}
 
-	for _, networkType := range validatorCase.CasesTypes {
-		if _, ok := casesTypesFunc[networkType]; !ok {
+	for _, caseType := range validatorCase.CasesTypes {
+		if _, ok := casesTypesFunc[caseType]; !ok {
 			response.Diagnostics.AddError(
 				"Invalid case type",
-				fmt.Sprintf("invalid case type: %s", networkType),
+				fmt.Sprintf("invalid case type: %s", caseType),
 			)
 			continue
 		}
 
 		resp := new(validator.StringResponse)
-		casesTypesFunc[networkType]().ValidateString(ctx, request, resp)
+		casesTypesFunc[caseType]().ValidateString(ctx, request, resp)
 
 		if resp.Diagnostics.HasError() {
 			response.Diagnostics.Append(resp.Diagnostics...)
