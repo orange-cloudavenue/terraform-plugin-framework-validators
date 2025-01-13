@@ -1,0 +1,3 @@
+```release-note:feature
+`stringvalidator` - Add new `Cases` validator to validate string against multiple cases (Disallow Uppercase/Lowercase/Number/Space)
+```
