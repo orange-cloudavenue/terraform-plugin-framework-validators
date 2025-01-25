@@ -1,4 +1,9 @@
 ## 1.13.0 (Unreleased)
+
+### :dependabot: **Dependencies**
+
+* deps: bumps github.com/hashicorp/terraform-plugin-go from 0.25.0 to 0.26.0 (GH-41)
+
 ## 1.12.0 (January 13, 2025)
 
 ### :rocket: **New Features**
