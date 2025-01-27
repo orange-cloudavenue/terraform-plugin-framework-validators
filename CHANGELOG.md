@@ -1,5 +1,9 @@
 ## 1.13.0 (Unreleased)
 
+### :rocket: **New Features**
+
+* `int32validator` - Add common validators (based on int64validator) for the Int32 type. (GH-42)
+
 ### :dependabot: **Dependencies**
 
 * deps: bumps github.com/hashicorp/terraform-plugin-go from 0.25.0 to 0.26.0 (GH-41)
