@@ -1,0 +1,3 @@
+```release-note:feature
+`int32validator` - Add common validators (based on int64validator) for the Int32 type.
+```
