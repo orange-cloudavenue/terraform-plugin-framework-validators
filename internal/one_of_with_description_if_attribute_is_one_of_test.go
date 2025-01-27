@@ -144,6 +144,41 @@ func TestOneOfWithDescriptionIfAttributeIsOneOfValidator(t *testing.T) {
 			},
 			expError: true,
 		},
+		"baseInt32": {
+			req: internal.OneOfWithDescriptionIfAttributeIsOneOfValidatorRequest{
+				ConfigValue:    types.StringValue("another value"),
+				Path:           path.Root("attrToCheck"),
+				PathExpression: path.MatchRoot("attrToCheck"),
+				Values: []internal.OneOfWithDescriptionIfAttributeIsOneOf{
+					{
+						Value:       types.Int32Value(20),
+						Description: "20 is better",
+					},
+				},
+				Config: tfsdk.Config{
+					Schema: schema.Schema{
+						Attributes: map[string]schema.Attribute{
+							"attrToCheck": schema.StringAttribute{},
+							"attrOther":   schema.StringAttribute{},
+						},
+					},
+					Raw: tftypes.NewValue(tftypes.Object{
+						AttributeTypes: map[string]tftypes.Type{
+							"attrToCheck": tftypes.Number,
+							"attrOther":   tftypes.String,
+						},
+					}, map[string]tftypes.Value{
+						"attrToCheck": tftypes.NewValue(tftypes.Number, int32(10)),
+						"attrOther":   tftypes.NewValue(tftypes.String, "value"),
+					}),
+				},
+			},
+			in: path.MatchRoot("attrOther"),
+			expectedValues: []attr.Value{
+				types.StringValue("value"),
+			},
+			expError: true,
+		},
 		"baseInt64": {
 			req: internal.OneOfWithDescriptionIfAttributeIsOneOfValidatorRequest{
 				ConfigValue:    types.StringValue("another value"),

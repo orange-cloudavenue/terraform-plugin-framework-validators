@@ -24,6 +24,7 @@ import (
 // This type of validator must satisfy all types.
 var (
 	_ validator.Float64 = OneOfWithDescriptionValidator{}
+	_ validator.Int32   = OneOfWithDescriptionValidator{}
 	_ validator.Int64   = OneOfWithDescriptionValidator{}
 	_ validator.List    = OneOfWithDescriptionValidator{}
 	_ validator.Map     = OneOfWithDescriptionValidator{}
@@ -195,6 +196,20 @@ func (v OneOfWithDescriptionIfAttributeIsOneOfValidator) ValidateString(ctx cont
 
 // Float64 validates that the value matches one of expected values.
 func (v OneOfWithDescriptionIfAttributeIsOneOfValidator) ValidateFloat64(ctx context.Context, req validator.Float64Request, resp *validator.Float64Response) {
+	validateReq := OneOfWithDescriptionIfAttributeIsOneOfValidatorRequest{
+		Config:      req.Config,
+		ConfigValue: req.ConfigValue,
+		Path:        req.Path,
+	}
+	validateResp := &OneOfWithDescriptionIfAttributeIsOneOfValidatorResponse{}
+
+	v.Validate(ctx, validateReq, validateResp)
+
+	resp.Diagnostics.Append(validateResp.Diagnostics...)
+}
+
+// Int32 validates that the value matches one of expected values.
+func (v OneOfWithDescriptionIfAttributeIsOneOfValidator) ValidateInt32(ctx context.Context, req validator.Int32Request, resp *validator.Int32Response) {
 	validateReq := OneOfWithDescriptionIfAttributeIsOneOfValidatorRequest{
 		Config:      req.Config,
 		ConfigValue: req.ConfigValue,

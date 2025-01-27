@@ -19,6 +19,7 @@ import (
 
 var (
 	_ validator.String = NotValidator{}
+	_ validator.Int32  = NotValidator{}
 	_ validator.Int64  = NotValidator{}
 	_ validator.Set    = NotValidator{}
 	_ validator.List   = NotValidator{}
@@ -34,6 +35,7 @@ type NotValidator struct {
 
 	// OneOf
 	StringValidator validator.String
+	Int32Validator  validator.Int32
 	Int64Validator  validator.Int64
 	SetValidator    validator.Set
 	ListValidator   validator.List
@@ -72,6 +74,29 @@ func (v NotValidator) ValidateString(ctx context.Context, req validator.StringRe
 		req.Path,
 		"Invalid not condition",
 		fmt.Sprintf("NOT %s", v.StringValidator.Description(ctx)),
+	)
+}
+
+// Validate performs the validation.
+// The validator will pass if it encounters a value validator that returns no errors and will then return any warnings
+// from the passing validator. Using All validator as value validators will pass if all the validators supplied in an
+// All validator pass.
+func (v NotValidator) ValidateInt32(ctx context.Context, req validator.Int32Request, resp *validator.Int32Response) {
+	vResp := &validator.Int32Response{
+		Diagnostics: diag.Diagnostics{},
+	}
+
+	v.Int32Validator.ValidateInt32(ctx, req, vResp)
+
+	// If there was an error then the not condition is true, simply return
+	if vResp.Diagnostics.HasError() {
+		return
+	}
+
+	resp.Diagnostics.AddAttributeError(
+		req.Path,
+		"Invalid not condition",
+		fmt.Sprintf("NOT %s", v.Int32Validator.Description(ctx)),
 	)
 }
 

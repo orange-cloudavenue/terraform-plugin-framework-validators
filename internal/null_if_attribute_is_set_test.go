@@ -130,6 +130,34 @@ func TestNullIfAttributeIsSetOneOfValidator(t *testing.T) {
 			expError:        true,
 			expErrorMessage: "If foobar[0].bar1 attribute is set this attribute is NULL",
 		},
+		"baseInt32": {
+			req: internal.NullIfAttributeIsSetRequest{
+				ConfigValue:    types.StringValue("bar value"),
+				Path:           path.Root("bar"),
+				PathExpression: path.MatchRoot("bar"),
+				Config: tfsdk.Config{
+					Schema: schema.Schema{
+						Attributes: map[string]schema.Attribute{
+							"foo": schema.Int32Attribute{},
+							"bar": schema.StringAttribute{},
+						},
+					},
+					Raw: tftypes.NewValue(tftypes.Object{
+						AttributeTypes: map[string]tftypes.Type{
+							"foo": tftypes.Number,
+							"bar": tftypes.String,
+						},
+					}, map[string]tftypes.Value{
+						"foo": tftypes.NewValue(tftypes.Number, int32(10)),
+						"bar": tftypes.NewValue(tftypes.String, attr.NullValueString),
+					}),
+				},
+			},
+			in:              path.MatchRoot("foo"),
+			inPath:          path.Root("foo"),
+			expError:        true,
+			expErrorMessage: "If foo attribute is set this attribute is NULL",
+		},
 		"baseInt64": {
 			req: internal.NullIfAttributeIsSetRequest{
 				ConfigValue:    types.StringValue("bar value"),

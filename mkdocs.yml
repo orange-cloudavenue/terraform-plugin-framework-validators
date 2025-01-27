@@ -24,6 +24,7 @@ nav:
   - How to use: "getting-started.md"
   - String: "stringvalidator/index.md"
   - Bool: "boolvalidator/index.md"
+  - Int32: "int32validator/index.md"
   - Int64: "int64validator/index.md"
   - List: "listvalidator/index.md"
   - Set: "setvalidator/index.md"
