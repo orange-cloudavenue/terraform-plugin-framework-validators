@@ -96,7 +96,7 @@ func (v NotValidator) ValidateInt32(ctx context.Context, req validator.Int32Requ
 	resp.Diagnostics.AddAttributeError(
 		req.Path,
 		"Invalid not condition",
-		fmt.Sprintf("NOT %s", v.Int64Validator.Description(ctx)),
+		fmt.Sprintf("NOT %s", v.Int32Validator.Description(ctx)),
 	)
 }
 
