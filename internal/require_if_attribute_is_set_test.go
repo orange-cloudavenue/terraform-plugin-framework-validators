@@ -129,6 +129,34 @@ func TestRequireIfAttributeIsSetValidator(t *testing.T) {
 			expError:        true,
 			expErrorMessage: "If foobar[0].bar1 attribute is set this attribute is REQUIRED",
 		},
+		"baseInt32": {
+			req: internal.RequireIfAttributeIsSetRequest{
+				ConfigValue:    types.StringNull(),
+				Path:           path.Root("bar"),
+				PathExpression: path.MatchRoot("bar"),
+				Config: tfsdk.Config{
+					Schema: schema.Schema{
+						Attributes: map[string]schema.Attribute{
+							"foo": schema.Int32Attribute{},
+							"bar": schema.StringAttribute{},
+						},
+					},
+					Raw: tftypes.NewValue(tftypes.Object{
+						AttributeTypes: map[string]tftypes.Type{
+							"foo": tftypes.Number,
+							"bar": tftypes.String,
+						},
+					}, map[string]tftypes.Value{
+						"foo": tftypes.NewValue(tftypes.Number, int32(10)),
+						"bar": tftypes.NewValue(tftypes.String, nil),
+					}),
+				},
+			},
+			in:              path.MatchRoot("foo"),
+			inPath:          path.Root("foo"),
+			expError:        true,
+			expErrorMessage: "If foo attribute is set this attribute is REQUIRED",
+		},
 		"baseInt64": {
 			req: internal.RequireIfAttributeIsSetRequest{
 				ConfigValue:    types.StringNull(),

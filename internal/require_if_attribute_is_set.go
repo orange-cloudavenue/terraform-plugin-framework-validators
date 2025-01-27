@@ -24,6 +24,7 @@ import (
 var (
 	_ validator.Bool    = RequireIfAttributeIsSet{}
 	_ validator.Float64 = RequireIfAttributeIsSet{}
+	_ validator.Int32   = RequireIfAttributeIsSet{}
 	_ validator.Int64   = RequireIfAttributeIsSet{}
 	_ validator.List    = RequireIfAttributeIsSet{}
 	_ validator.Map     = RequireIfAttributeIsSet{}
@@ -123,6 +124,20 @@ func (av RequireIfAttributeIsSet) ValidateBool(ctx context.Context, req validato
 }
 
 func (av RequireIfAttributeIsSet) ValidateFloat64(ctx context.Context, req validator.Float64Request, resp *validator.Float64Response) {
+	validateReq := RequireIfAttributeIsSetRequest{
+		Config:         req.Config,
+		ConfigValue:    req.ConfigValue,
+		Path:           req.Path,
+		PathExpression: req.PathExpression,
+	}
+	validateResp := &RequireIfAttributeIsSetResponse{}
+
+	av.Validate(ctx, validateReq, validateResp)
+
+	resp.Diagnostics.Append(validateResp.Diagnostics...)
+}
+
+func (av RequireIfAttributeIsSet) ValidateInt32(ctx context.Context, req validator.Int32Request, resp *validator.Int32Response) {
 	validateReq := RequireIfAttributeIsSetRequest{
 		Config:         req.Config,
 		ConfigValue:    req.ConfigValue,

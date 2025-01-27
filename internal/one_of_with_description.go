@@ -28,6 +28,7 @@ const oneOfWithDescriptionValidatorDescription = "Value must be one of:"
 // This type of validator must satisfy all types.
 var (
 	_ validator.Float64 = OneOfWithDescriptionValidator{}
+	_ validator.Int32   = OneOfWithDescriptionValidator{}
 	_ validator.Int64   = OneOfWithDescriptionValidator{}
 	_ validator.List    = OneOfWithDescriptionValidator{}
 	_ validator.Map     = OneOfWithDescriptionValidator{}
@@ -119,6 +120,20 @@ func (v OneOfWithDescriptionValidator) ValidateString(ctx context.Context, req v
 
 // Float64 validates that the value matches one of expected values.
 func (v OneOfWithDescriptionValidator) ValidateFloat64(ctx context.Context, req validator.Float64Request, resp *validator.Float64Response) {
+	validateReq := OneOfWithDescriptionValidatorRequest{
+		Config:      req.Config,
+		ConfigValue: req.ConfigValue,
+		Path:        req.Path,
+	}
+	validateResp := &OneOfWithDescriptionValidatorResponse{}
+
+	v.Validate(ctx, validateReq, validateResp)
+
+	resp.Diagnostics.Append(validateResp.Diagnostics...)
+}
+
+// Int32 validates that the value matches one of expected values.
+func (v OneOfWithDescriptionValidator) ValidateInt32(ctx context.Context, req validator.Int32Request, resp *validator.Int32Response) {
 	validateReq := OneOfWithDescriptionValidatorRequest{
 		Config:      req.Config,
 		ConfigValue: req.ConfigValue,

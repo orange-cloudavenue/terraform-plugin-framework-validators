@@ -25,6 +25,7 @@ import (
 var (
 	_ validator.Bool    = NullIfAttributeIsOneOf{}
 	_ validator.Float64 = NullIfAttributeIsOneOf{}
+	_ validator.Int32   = NullIfAttributeIsOneOf{}
 	_ validator.Int64   = NullIfAttributeIsOneOf{}
 	_ validator.List    = NullIfAttributeIsOneOf{}
 	_ validator.Map     = NullIfAttributeIsOneOf{}
@@ -162,6 +163,20 @@ func (av NullIfAttributeIsOneOf) ValidateBool(ctx context.Context, req validator
 }
 
 func (av NullIfAttributeIsOneOf) ValidateFloat64(ctx context.Context, req validator.Float64Request, resp *validator.Float64Response) {
+	validateReq := NullIfAttributeIsOneOfRequest{
+		Config:         req.Config,
+		ConfigValue:    req.ConfigValue,
+		Path:           req.Path,
+		PathExpression: req.PathExpression,
+	}
+	validateResp := &NullIfAttributeIsOneOfResponse{}
+
+	av.Validate(ctx, validateReq, validateResp)
+
+	resp.Diagnostics.Append(validateResp.Diagnostics...)
+}
+
+func (av NullIfAttributeIsOneOf) ValidateInt32(ctx context.Context, req validator.Int32Request, resp *validator.Int32Response) {
 	validateReq := NullIfAttributeIsOneOfRequest{
 		Config:         req.Config,
 		ConfigValue:    req.ConfigValue,

@@ -24,6 +24,7 @@ import (
 var (
 	_ validator.Bool    = NullIfAttributeIsSet{}
 	_ validator.Float64 = NullIfAttributeIsSet{}
+	_ validator.Int32   = NullIfAttributeIsSet{}
 	_ validator.Int64   = NullIfAttributeIsSet{}
 	_ validator.List    = NullIfAttributeIsSet{}
 	_ validator.Map     = NullIfAttributeIsSet{}
@@ -120,6 +121,20 @@ func (av NullIfAttributeIsSet) ValidateBool(ctx context.Context, req validator.B
 }
 
 func (av NullIfAttributeIsSet) ValidateFloat64(ctx context.Context, req validator.Float64Request, resp *validator.Float64Response) {
+	validateReq := NullIfAttributeIsSetRequest{
+		Config:         req.Config,
+		ConfigValue:    req.ConfigValue,
+		Path:           req.Path,
+		PathExpression: req.PathExpression,
+	}
+	validateResp := &NullIfAttributeIsSetResponse{}
+
+	av.Validate(ctx, validateReq, validateResp)
+
+	resp.Diagnostics.Append(validateResp.Diagnostics...)
+}
+
+func (av NullIfAttributeIsSet) ValidateInt32(ctx context.Context, req validator.Int32Request, resp *validator.Int32Response) {
 	validateReq := NullIfAttributeIsSetRequest{
 		Config:         req.Config,
 		ConfigValue:    req.ConfigValue,
