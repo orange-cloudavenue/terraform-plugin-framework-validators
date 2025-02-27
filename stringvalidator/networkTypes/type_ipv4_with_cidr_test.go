@@ -96,7 +96,7 @@ func TestValidIPV4WithCIDRValidatorDescription(t *testing.T) {
 	}
 	tests := map[string]testCase{
 		"description": {
-			description: "a valid IPV4 address with CIDR (192.168.0.1/24).",
+			description: "a valid IPV4 address with CIDR (Ex: 192.168.0.1/24)",
 		},
 	}
 
@@ -120,7 +120,7 @@ func TestValidIPV4WithCIDRValidatorMarkdownDescription(t *testing.T) {
 	}
 	tests := map[string]testCase{
 		"description": {
-			description: "a valid IPV4 address with CIDR (`192.168.0.1/24`).",
+			description: "a valid IPV4 address with CIDR (Ex: `192.168.0.1/24`)",
 		},
 	}
 

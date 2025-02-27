@@ -21,12 +21,12 @@ type validatorIPV4CIDR struct{}
 
 // Description describes the validation in plain text formatting.
 func (validator validatorIPV4CIDR) Description(_ context.Context) string {
-	return "a valid IPV4 address with CIDR (192.168.0.1/24)."
+	return "a valid IPV4 address with CIDR (Ex: 192.168.0.1/24)"
 }
 
 // MarkdownDescription describes the validation in Markdown formatting.
 func (validator validatorIPV4CIDR) MarkdownDescription(_ context.Context) string {
-	return "a valid IPV4 address with CIDR (`192.168.0.1/24`)."
+	return "a valid IPV4 address with CIDR (Ex: `192.168.0.1/24`)"
 }
 
 // Validate performs the validation.

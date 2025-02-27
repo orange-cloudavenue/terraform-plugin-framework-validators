@@ -22,12 +22,12 @@ type validatorIPV4Netmask struct{}
 
 // Description describes the validation in plain text formatting.
 func (validator validatorIPV4Netmask) Description(_ context.Context) string {
-	return "a valid IPV4 address with Netmask (192.168.0.1/255.255.255.0)."
+	return "a valid IPV4 address with Netmask (Ex: 192.168.0.1/255.255.255.0)"
 }
 
 // MarkdownDescription describes the validation in Markdown formatting.
 func (validator validatorIPV4Netmask) MarkdownDescription(_ context.Context) string {
-	return "a valid IPV4 address with Netmask (`192.168.0.1/255.255.255.0`)."
+	return "a valid IPV4 address with Netmask (Ex: `192.168.0.1/255.255.255.0`)"
 }
 
 // Validate performs the validation.

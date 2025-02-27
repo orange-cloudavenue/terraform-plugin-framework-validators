@@ -14,10 +14,17 @@ The validator takes a list of NetworkValidatorType and a boolean as argument.
 
 The list can contain one or more of the following values:
 
-* `IPV4` - Check if the string is a valid IPV4 address.
-* `IPV4WithCIDR` - Check if the string is a valid IPV4 address with CIDR.
-* `IPV4WithNetmask`- Check if the string is a valid IPV4 address with netmask.
-* `IsRFC1918` - Check if the string is a valid [RFC1918](https://en.wikipedia.org/wiki/Private_network) address.
+**IPV4**
+
+* `IPV4` - Check if the string is a valid IPV4 address (Ex: 192.168.0.1).
+* `IPV4WithCIDR` - Check if the string is a valid IPV4 address with CIDR (Ex: 192.168.0.0/24).
+* `IPV4WithNetmask`- Check if the string is a valid IPV4 address with netmask (Ex: 192.168.0.0/255.255.255.0).
+* `IPV4Range` - Check if the string is a valid IPV4 address range (Ex: 192.168.0.1-192.168.0.10).
+* `RFC1918` - Check if the string is a valid [RFC1918](https://en.wikipedia.org/wiki/Private_network) address.
+
+**TCP/UDP**
+
+* `TCPUDPPortRange` - Check if the string is a valid TCP/UDP port range (Ex: 80-90).
 
 The boolean is used to define if the value must be at least one of the network types.
 
@@ -57,7 +64,7 @@ func (r *xResource) Schema(ctx context.Context, _ resource.SchemaRequest, resp *
                 Validators: []validator.String{
                     fstringvalidator.IsNetwork([]fstringvalidator.NetworkValidatorType{
                         fstringvalidator.IPV4,
-                        fstringvalidator.IsRFC1918,
+                        fstringvalidator.RFC1918,
                     }, false)
                 },
             },

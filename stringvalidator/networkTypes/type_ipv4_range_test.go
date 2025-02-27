@@ -1,12 +1,3 @@
-/*
- * SPDX-FileCopyrightText: Copyright (c) 2025 Orange
- * SPDX-License-Identifier: Mozilla Public License 2.0
- *
- * This software is distributed under the MPL-2.0 license.
- * the text of which is available at https://www.mozilla.org/en-US/MPL/2.0/
- * or see the "LICENSE" file for more details.
- */
-
 package networktypes_test
 
 import (
@@ -19,34 +10,48 @@ import (
 	networktypes "github.com/orange-cloudavenue/terraform-plugin-framework-validators/stringvalidator/networkTypes"
 )
 
-func TestValidIPV4Validator(t *testing.T) {
+func TestValidIPV4RangeValidator(t *testing.T) {
 	t.Parallel()
 
 	type testCase struct {
-		val         types.String
+		value       types.String
 		expectError bool
 	}
+
 	tests := map[string]testCase{
 		"unknown": {
-			val: types.StringUnknown(),
+			value: types.StringUnknown(),
 		},
 		"null": {
-			val: types.StringNull(),
+			value: types.StringNull(),
 		},
 		"valid": {
-			val: types.StringValue("192.168.1.1"),
+			value:       types.StringValue("192.168.0.1-192.168.0.10"),
+			expectError: false,
 		},
 		"invalid": {
-			val:         types.StringValue("192.168.1"),
+			value:       types.StringValue("192.168.0.100-192.168.0.10"),
+			expectError: true,
+		},
+		"invalid-first-part": {
+			value:       types.StringValue("192.168.0-192.168.0.10"),
+			expectError: true,
+		},
+		"invalid-second-part": {
+			value:       types.StringValue("192.168.0.10-notIP"),
+			expectError: true,
+		},
+		"invalid-not-range": {
+			value:       types.StringValue("ImNotARange"),
 			expectError: true,
 		},
 		"ipv6": {
-			val:         types.StringValue("2001:0db8:85a3:0000:0000:8a2e:0370:7334"),
+			value:       types.StringValue("2001:0db8:85a3:0000:0000:8a2e:0370:7334"),
 			expectError: true,
 		},
 		"multiple byte characters": {
 			// Rightwards Arrow Over Leftwards Arrow (U+21C4; 3 bytes)
-			val:         types.StringValue("⇄"),
+			value:       types.StringValue("⇄"),
 			expectError: true,
 		},
 	}
@@ -55,10 +60,10 @@ func TestValidIPV4Validator(t *testing.T) {
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			request := validator.StringRequest{
-				ConfigValue: test.val,
+				ConfigValue: test.value,
 			}
 			response := validator.StringResponse{}
-			networktypes.IsIPV4().ValidateString(context.TODO(), request, &response)
+			networktypes.IsIPV4Range().ValidateString(context.TODO(), request, &response)
 
 			if !response.Diagnostics.HasError() && test.expectError {
 				t.Fatal("expected error, got no error")
@@ -71,23 +76,23 @@ func TestValidIPV4Validator(t *testing.T) {
 	}
 }
 
-// TestValidIPValidatorDescription.
-func TestValidIPV4ValidatorDescription(t *testing.T) {
+// TestValidIPV4RangeValidatorDescription.
+func TestValidIPV4RangeValidatorDescription(t *testing.T) {
 	t.Parallel()
 
 	type testCase struct {
 		description string
 	}
+
 	tests := map[string]testCase{
 		"description": {
-			description: "a valid IPV4 address (Ex: 192.168.0.1)",
+			description: "a valid IPV4 address range (Ex: 192.168.0.1-192.168.0.100)",
 		},
 	}
-
 	for name, test := range tests {
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
-			validator := networktypes.IsIPV4()
+			validator := networktypes.IsIPV4Range()
 			if validator.Description(context.Background()) != test.description {
 				t.Fatalf("got unexpected description: %s != %s", validator.Description(context.Background()), test.description)
 			}
@@ -95,23 +100,24 @@ func TestValidIPV4ValidatorDescription(t *testing.T) {
 	}
 }
 
-// TestValidIPValidatorMarkdownDescription.
-func TestValidIPV4ValidatorMarkdownDescription(t *testing.T) {
+// TestValidIPV4RangeValidatorMarkdownDescription.
+func TestValidIPV4RangeValidatorMarkdownDescription(t *testing.T) {
 	t.Parallel()
 
 	type testCase struct {
 		description string
 	}
+
 	tests := map[string]testCase{
 		"description": {
-			description: "a valid IPV4 address (Ex: `192.168.0.1`)",
+			description: "a valid IPV4 address range (Ex: `192.168.0.1-192.168.0.100`)",
 		},
 	}
 
 	for name, test := range tests {
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
-			validator := networktypes.IsIPV4()
+			validator := networktypes.IsIPV4Range()
 			if validator.MarkdownDescription(context.Background()) != test.description {
 				t.Fatalf("got unexpected description: %s != %s", validator.MarkdownDescription(context.Background()), test.description)
 			}

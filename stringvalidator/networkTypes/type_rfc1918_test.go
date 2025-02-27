@@ -90,7 +90,7 @@ func TestValidRFC1918ValidatorDescription(t *testing.T) {
 	}
 	tests := map[string]testCase{
 		"description": {
-			description: "a valid IPV4 local address (RFC1918).",
+			description: "a valid IPV4 local address (RFC1918)",
 		},
 	}
 
@@ -114,7 +114,7 @@ func TestValidRFC1918ValidatorMarkdownDescription(t *testing.T) {
 	}
 	tests := map[string]testCase{
 		"description": {
-			description: "a valid IPV4 local address ([RFC1918](https://en.wikipedia.org/wiki/Private_network)).",
+			description: "a valid IPV4 local address ([RFC1918](https://en.wikipedia.org/wiki/Private_network))",
 		},
 	}
 
