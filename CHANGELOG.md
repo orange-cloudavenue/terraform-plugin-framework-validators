@@ -1,4 +1,9 @@
 ## 1.14.0 (Unreleased)
+
+### :dependabot: **Dependencies**
+
+* deps: bumps github.com/hashicorp/terraform-plugin-framework-validators from 0.16.0 to 0.17.0 (GH-48)
+
 ## 1.13.0 (January 27, 2025)
 
 ### :rocket: **New Features**
