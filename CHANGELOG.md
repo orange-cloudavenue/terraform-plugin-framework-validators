@@ -1,5 +1,10 @@
 ## 1.14.0 (Unreleased)
 
+### :rocket: **New Features**
+
+* `stringvalidator` - Add new network validator `IPV4Range` to validate IPv4 range (Ex: 192.168.0.1-192.168.0.10). (GH-50)
+* `stringvalidator` - Add new network validator `TCPUDPPortRange` to validate TCP/UDP port range (Ex: 80-90). (GH-50)
+
 ### :dependabot: **Dependencies**
 
 * deps: bumps github.com/hashicorp/terraform-plugin-framework from 1.14.0 to 1.14.1 (GH-51)
