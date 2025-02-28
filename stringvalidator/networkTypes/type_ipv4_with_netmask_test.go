@@ -96,7 +96,7 @@ func TestValidIPV4WithNetmaskValidatorDescription(t *testing.T) {
 	}
 	tests := map[string]testCase{
 		"description": {
-			description: "a valid IPV4 address with Netmask (192.168.0.1/255.255.255.0).",
+			description: "a valid IPV4 address with Netmask (Ex: 192.168.0.1/255.255.255.0)",
 		},
 	}
 
@@ -120,7 +120,7 @@ func TestValidIPV4WithNetmaskValidatorMarkdownDescription(t *testing.T) {
 	}
 	tests := map[string]testCase{
 		"description": {
-			description: "a valid IPV4 address with Netmask (`192.168.0.1/255.255.255.0`).",
+			description: "a valid IPV4 address with Netmask (Ex: `192.168.0.1/255.255.255.0`)",
 		},
 	}
 

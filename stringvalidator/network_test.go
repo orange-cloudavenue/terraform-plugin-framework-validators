@@ -44,7 +44,7 @@ func TestNetworkValidator(t *testing.T) {
 		"valid-ipv4-with-netmask": {
 			val: types.StringValue("192.168.0.1/255.255.255.0"),
 			typesOfNetwork: []stringvalidator.NetworkValidatorType{
-				stringvalidator.IPv4WithNetmask,
+				stringvalidator.IPV4WithNetmask,
 			},
 		},
 		"valid-ipv4-with-cidr": {
@@ -57,6 +57,18 @@ func TestNetworkValidator(t *testing.T) {
 			val: types.StringValue("192.168.0.1"),
 			typesOfNetwork: []stringvalidator.NetworkValidatorType{
 				stringvalidator.RFC1918,
+			},
+		},
+		"valid-ipv4-range": {
+			val: types.StringValue("192.168.0.1-192.168.0.100"),
+			typesOfNetwork: []stringvalidator.NetworkValidatorType{
+				stringvalidator.IPV4Range,
+			},
+		},
+		"valid-port-range": {
+			val: types.StringValue("1-100"),
+			typesOfNetwork: []stringvalidator.NetworkValidatorType{
+				stringvalidator.TCPUDPPortRange,
 			},
 		},
 		"invalid-rfc1918-valid-ipv4-with-cidr-comparatorOR": {

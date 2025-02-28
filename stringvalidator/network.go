@@ -24,19 +24,34 @@ var _ validator.String = networkValidator{}
 const (
 	IPV4            NetworkValidatorType = "ipv4"
 	IPV4WithCIDR    NetworkValidatorType = "ipv4_with_cidr"
-	IPv4WithNetmask NetworkValidatorType = "ipv4_with_netmask"
+	IPV4WithNetmask NetworkValidatorType = "ipv4_with_netmask"
+	IPV4Range       NetworkValidatorType = "ipv4_range"
 	RFC1918         NetworkValidatorType = "rfc1918"
+
+	TCPUDPPortRange NetworkValidatorType = "tcpudp_port_range"
 )
 
-type NetworkValidatorType string
+var networkValidatorTypes = map[NetworkValidatorType]validator.String{
+	IPV4:            networkTypes.IsIPV4(),
+	IPV4WithCIDR:    networkTypes.IsIPV4WithCIDR(),
+	IPV4WithNetmask: networkTypes.IsIPV4WithNetmask(),
+	IPV4Range:       networkTypes.IsIPV4Range(),
+	RFC1918:         networkTypes.IsRFC1918(),
 
-type networkValidator struct {
-	NetworkTypes []NetworkValidatorType
-	ComparatorOR bool
+	TCPUDPPortRange: networkTypes.IsTCPUDPPortRange(),
 }
 
+type (
+	NetworkValidatorType string
+
+	networkValidator struct {
+		NetworkTypes []NetworkValidatorType
+		ComparatorOR bool
+	}
+)
+
 // Description describes the validation in plain text formatting.
-func (validatorNet networkValidator) Description(_ context.Context) string {
+func (validatorNet networkValidator) Description(ctx context.Context) string {
 	description := ""
 	switch {
 	case validatorNet.ComparatorOR && len(validatorNet.NetworkTypes) > 1:
@@ -48,17 +63,17 @@ func (validatorNet networkValidator) Description(_ context.Context) string {
 	}
 
 	for _, networkType := range validatorNet.NetworkTypes {
-		switch networkType {
-		case IPV4:
-			description += fmt.Sprintf("%s, ", networkTypes.IsIPV4().Description(context.Background()))
-		case IPV4WithCIDR:
-			description += fmt.Sprintf("%s, ", networkTypes.IsIPV4WithCIDR().Description(context.Background()))
-		case IPv4WithNetmask:
-			description += fmt.Sprintf("%s, ", networkTypes.IsIPV4WithNetmask().Description(context.Background()))
-		case RFC1918:
-			description += fmt.Sprintf("%s, ", networkTypes.IsRFC1918().Description(context.Background()))
+		for k, v := range networkValidatorTypes {
+			if networkType == k {
+				description += fmt.Sprintf("%s, ", v.Description(ctx))
+			}
 		}
 	}
+
+	if len(validatorNet.NetworkTypes) > 1 {
+		description = description[:len(description)-2]
+	}
+
 	return description
 }
 
@@ -95,15 +110,10 @@ func (validatorNet networkValidator) MarkdownDescription(ctx context.Context) st
 	}
 
 	for i, networkType := range validatorNet.NetworkTypes {
-		switch networkType {
-		case IPV4:
-			markdownDescription += computeDescription(networkTypes.IsIPV4().MarkdownDescription(ctx), i)
-		case IPV4WithCIDR:
-			markdownDescription += computeDescription(networkTypes.IsIPV4WithCIDR().MarkdownDescription(ctx), i)
-		case IPv4WithNetmask:
-			markdownDescription += computeDescription(networkTypes.IsIPV4WithNetmask().MarkdownDescription(ctx), i)
-		case RFC1918:
-			markdownDescription += computeDescription(networkTypes.IsRFC1918().MarkdownDescription(ctx), i)
+		for k, v := range networkValidatorTypes {
+			if networkType == k {
+				markdownDescription += computeDescription(v.MarkdownDescription(ctx), i)
+			}
 		}
 	}
 
@@ -117,6 +127,7 @@ func (validatorNet networkValidator) ValidateString(
 	response *validator.StringResponse,
 ) {
 	if request.ConfigValue.IsNull() || request.ConfigValue.IsUnknown() {
+		// skip validation if value is null or unknown
 		return
 	}
 
@@ -131,49 +142,17 @@ func (validatorNet networkValidator) ValidateString(
 	diags := diag.Diagnostics{}
 
 	for _, networkType := range validatorNet.NetworkTypes {
-		switch networkType {
-		case IPV4:
-			d := new(validator.StringResponse)
-
-			networkTypes.IsIPV4().ValidateString(ctx, request, d)
-			if d.Diagnostics.HasError() && !validatorNet.ComparatorOR {
-				response.Diagnostics.Append(d.Diagnostics...)
-			} else if d.Diagnostics.HasError() && validatorNet.ComparatorOR {
-				diags.Append(d.Diagnostics...)
-			}
-		case IPV4WithCIDR:
-			d := new(validator.StringResponse)
-
-			networkTypes.IsIPV4WithCIDR().ValidateString(ctx, request, d)
-			if d.Diagnostics.HasError() && !validatorNet.ComparatorOR {
-				response.Diagnostics.Append(d.Diagnostics...)
-			} else if d.Diagnostics.HasError() && validatorNet.ComparatorOR {
-				diags.Append(d.Diagnostics...)
-			}
-		case IPv4WithNetmask:
-			d := new(validator.StringResponse)
-
-			networkTypes.IsIPV4WithNetmask().ValidateString(ctx, request, d)
-			if d.Diagnostics.HasError() && !validatorNet.ComparatorOR {
-				response.Diagnostics.Append(d.Diagnostics...)
-			} else if d.Diagnostics.HasError() && validatorNet.ComparatorOR {
-				diags.Append(d.Diagnostics...)
-			}
-		case RFC1918:
-			d := new(validator.StringResponse)
-
-			networkTypes.IsRFC1918().ValidateString(ctx, request, d)
-			if d.Diagnostics.HasError() && !validatorNet.ComparatorOR {
-				response.Diagnostics.Append(d.Diagnostics...)
-			} else if d.Diagnostics.HasError() && validatorNet.ComparatorOR {
-				diags.Append(d.Diagnostics...)
-			}
-		default:
+		d := new(validator.StringResponse)
+		if _, ok := networkValidatorTypes[networkType]; !ok {
 			response.Diagnostics.AddError(
 				"Invalid network type",
 				fmt.Sprintf("invalid network type: %s", networkType),
 			)
+			return
 		}
+
+		networkValidatorTypes[networkType].ValidateString(ctx, request, d)
+		diags.Append(d.Diagnostics...)
 	}
 
 	if validatorNet.ComparatorOR && diags.ErrorsCount() == len(validatorNet.NetworkTypes) {
@@ -181,6 +160,10 @@ func (validatorNet networkValidator) ValidateString(
 			fmt.Sprintf("Invalid configuration for attribute %s", request.Path),
 			"Set at least one valid network type",
 		)
+	}
+
+	if !validatorNet.ComparatorOR {
+		response.Diagnostics.Append(diags...)
 	}
 }
 

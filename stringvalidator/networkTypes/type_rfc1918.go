@@ -21,12 +21,12 @@ type validatorRFC1918 struct{}
 
 // Description describes the validation in plain text formatting.
 func (validator validatorRFC1918) Description(_ context.Context) string {
-	return "a valid IPV4 local address (RFC1918)."
+	return "a valid IPV4 local address (RFC1918)"
 }
 
 // MarkdownDescription describes the validation in Markdown formatting.
 func (validator validatorRFC1918) MarkdownDescription(_ context.Context) string {
-	return "a valid IPV4 local address ([RFC1918](https://en.wikipedia.org/wiki/Private_network))."
+	return "a valid IPV4 local address ([RFC1918](https://en.wikipedia.org/wiki/Private_network))"
 }
 
 // Validate performs the validation.

@@ -21,12 +21,12 @@ type validatorIPV4 struct{}
 
 // Description describes the validation in plain text formatting.
 func (validator validatorIPV4) Description(_ context.Context) string {
-	return "a valid IPV4 address (192.168.0.1)."
+	return "a valid IPV4 address (Ex: 192.168.0.1)"
 }
 
 // MarkdownDescription describes the validation in Markdown formatting.
 func (validator validatorIPV4) MarkdownDescription(_ context.Context) string {
-	return "a valid IPV4 address (`192.168.0.1`)."
+	return "a valid IPV4 address (Ex: `192.168.0.1`)"
 }
 
 // Validate performs the validation.
