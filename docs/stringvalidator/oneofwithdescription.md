@@ -35,7 +35,13 @@ func (r *xResource) Schema(ctx context.Context, _ resource.SchemaRequest, resp *
 
 ## Description and Markdown description
 
-* **Description:**
+### Description
+
 Value must be one of: "VMXNET3" (Vmware interface), "E1000E" (Intel interface)
-* **Markdown description:**
-Value must be one of: `VMXNET3` (Vmware interface), `E1000E` (Intel interface)
+
+### Markdown description
+
+Value must be one of:
+
+- `VMXNET3` (Vmware interface)
+- `E1000E` (Intel interface)
