@@ -1,0 +1,3 @@
+```release-note:note
+`oneOf` - Improve markdown description rendering for `OneOfWithDescription` (string/int32/int64) validator. Change to be rendered as a list instead of a single line.
+```
