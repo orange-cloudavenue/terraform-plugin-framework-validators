@@ -37,27 +37,44 @@ var (
 	_ validator.String  = OneOfWithDescriptionValidator{}
 )
 
-type OneOfWithDescription struct {
-	Value       attr.Value
-	Description string
-}
+type (
+	OneOfWithDescription struct {
+		Value       attr.Value
+		Description string
+	}
 
-// OneOfWithDescriptionValidator validates that the value matches one of expected values.
-type OneOfWithDescriptionValidator struct {
-	Values []OneOfWithDescription
-}
+	// OneOfWithDescriptionValidator validates that the value matches one of expected values.
+	OneOfWithDescriptionValidator struct {
+		Values []OneOfWithDescription
+		Format OneOfWithDescriptionValidatorOutputFormat
+	}
 
-type OneOfWithDescriptionValidatorRequest struct {
-	Config         tfsdk.Config
-	ConfigValue    attr.Value
-	Path           path.Path
-	PathExpression path.Expression
-	Values         []OneOfWithDescription
-}
+	OneOfWithDescriptionValidatorOutputFormat string
 
-type OneOfWithDescriptionValidatorResponse struct {
-	Diagnostics diag.Diagnostics
-}
+	OneOfWithDescriptionValidatorRequest struct {
+		Config         tfsdk.Config
+		ConfigValue    attr.Value
+		Path           path.Path
+		PathExpression path.Expression
+		Values         []OneOfWithDescription
+		Format         OneOfWithDescriptionValidatorOutputFormat
+	}
+
+	OneOfWithDescriptionValidatorResponse struct {
+		Diagnostics diag.Diagnostics
+	}
+)
+
+const (
+	// List format will display the values as a list separated by commas.
+	// ex: value1, value2
+	OneOfWithDescriptionValidatorOutputFormatList OneOfWithDescriptionValidatorOutputFormat = "list"
+	// Point format will display the values as a formatted markdown point.
+	// ex:
+	//   - `value1` (description1)
+	//   - `value2` (description2)
+	OneOfWithDescriptionValidatorOutputFormatPoint OneOfWithDescriptionValidatorOutputFormat = "point"
+)
 
 func (v OneOfWithDescriptionValidator) Description(_ context.Context) string {
 	var valuesDescription string
@@ -73,14 +90,9 @@ func (v OneOfWithDescriptionValidator) Description(_ context.Context) string {
 
 func (v OneOfWithDescriptionValidator) MarkdownDescription(_ context.Context) string {
 	var valuesDescription string
-	for i, value := range v.Values {
+	for _, value := range v.Values {
 		x := strings.Trim(value.Value.String(), "\"")
-
-		if i == len(v.Values)-1 {
-			valuesDescription += fmt.Sprintf("`%s` (%s)", x, value.Description)
-			break
-		}
-		valuesDescription += fmt.Sprintf("`%s` (%s), ", x, value.Description)
+		valuesDescription += fmt.Sprintf("\n  - `%s` %s", x, value.Description)
 	}
 
 	return fmt.Sprintf("%s %s", oneOfWithDescriptionValidatorDescription, valuesDescription)
