@@ -1,4 +1,8 @@
 ## 1.15.0 (Unreleased)
+### :information_source: **Notes**
+
+* `oneOf` - Improve markdown description rendering for `OneOfWithDescription` (string/int32/int64) validator. Change to be rendered as a list instead of a single line. (GH-52)
+
 ## 1.14.0 (February 28, 2025)
 
 ### :rocket: **New Features**
