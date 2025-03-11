@@ -1,0 +1,3 @@
+```release-note:feature
+`stringvalidator` - Add new network validator `HTTPCode` to validate with settings the http code range allowed (Ex: 2xx).
+```

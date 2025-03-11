@@ -32,7 +32,7 @@ func (r *xResource) Schema(ctx context.Context, _ resource.SchemaRequest, resp *
                 Optional:            true,
                 MarkdownDescription: "Username for ...",
                 Validators: []validator.String{
-                    fstringvalidator.IsNetwork([]fstringvalidator.CasesValidatorType{
+                    fstringvalidator.Cases([]fstringvalidator.CasesValidatorType{
                         fstringvalidator.CasesDisallowUpper,
                         fstringvalidator.CasesDisallowSpace,
                     }, true)
