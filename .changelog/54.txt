@@ -1,0 +1,3 @@
+```release-note:feature
+`stringvalidator` - Add new network validator `TCPUDPPort` to validate TCP/UDP port (Ex: `8080`).
+```
