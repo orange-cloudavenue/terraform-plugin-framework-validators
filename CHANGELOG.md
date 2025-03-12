@@ -1,4 +1,9 @@
 ## 1.15.0 (Unreleased)
+
+### :rocket: **New Features**
+
+* `stringvalidator` - Add new network validator `TCPUDPPort` to validate TCP/UDP port (Ex: `8080`). (GH-54)
+
 ## 1.14.1 (March  6, 2025)
 ### :information_source: **Notes**
 
