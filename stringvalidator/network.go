@@ -29,6 +29,7 @@ const (
 	RFC1918         NetworkValidatorType = "rfc1918"
 
 	TCPUDPPortRange NetworkValidatorType = "tcpudp_port_range"
+	TCPUDPPort      NetworkValidatorType = "tcpudp_port"
 )
 
 var networkValidatorTypes = map[NetworkValidatorType]validator.String{
@@ -39,6 +40,7 @@ var networkValidatorTypes = map[NetworkValidatorType]validator.String{
 	RFC1918:         networkTypes.IsRFC1918(),
 
 	TCPUDPPortRange: networkTypes.IsTCPUDPPortRange(),
+	TCPUDPPort:      networkTypes.IsTCPUDPPort(),
 }
 
 type (

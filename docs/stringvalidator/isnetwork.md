@@ -24,7 +24,8 @@ The list can contain one or more of the following values:
 
 **TCP/UDP**
 
-* `TCPUDPPortRange` - Check if the string is a valid TCP/UDP port range (Ex: 80-90).
+* `TCPUDPPort` - Check if the string is a valid TCP/UDP port (Ex: `8080`).
+* `TCPUDPPortRange` - Check if the string is a valid TCP/UDP port range (Ex: `8080-8090`).
 
 The boolean is used to define if the value must be at least one of the network types.
 
