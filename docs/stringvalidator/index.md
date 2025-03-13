@@ -41,3 +41,4 @@ import (
 ### Special
 
 - [`Not`](not.md) - This validator is used to negate the result of another validator.
+- [`HTTPCode`](httpcode.md) - This validator is used to check if the string contains a valid http status code.
