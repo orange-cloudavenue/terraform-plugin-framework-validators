@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # ObjectValidator
 
 Object validator are used to validate the plan of an object attribute.

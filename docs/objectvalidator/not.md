@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # `Not`
 
 !!! quote inline end "Released in v1.11.0"
