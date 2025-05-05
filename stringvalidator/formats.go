@@ -50,9 +50,9 @@ func (validatorFormats formatsValidator) Description(ctx context.Context) string
 
 	switch {
 	case !validatorFormats.ComparatorOR && len(validatorFormats.FormatsTypes) > 1:
-		description += "The value must respect at least one of the following rules :\n"
+		description += "The value must respect at least one of the following rules : "
 	case validatorFormats.ComparatorOR && len(validatorFormats.FormatsTypes) > 1:
-		description += "The value must respect all of the following rules :\n"
+		description += "The value must respect all of the following rules : "
 	case len(validatorFormats.FormatsTypes) == 1:
 		description += "The value must respect the following rule : "
 	}

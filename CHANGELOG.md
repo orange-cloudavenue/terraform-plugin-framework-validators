@@ -2,14 +2,15 @@
 
 ### :rocket: **New Features**
 
-* `stringvalidator/format` - Add new function `IsBase64` to validate if a string is a valid Base64 encoded string. (GH-59)
-* `stringvalidator/format` - Add new function `IsURN` to validate if a string is a valid URN. (GH-59)
-* `stringvalidator/format` - Add new function `IsUUIDv4` to validate if a string is a valid UUIDv4. (GH-59)
-* `stringvalidator` - Add new `format` validator to validate strings against specific formats (e.g., Base64, UUIDv4, URN ). (GH-59)
+* `stringvalidator` - Add new `formats` validator to validate strings against specific formats (e.g., Base64, UUIDv4, URN ). (GH-59)
+* `stringvalidator/formats` - Add new function `IsBase64` to validate if a string is a valid Base64 encoded string. (GH-59)
+* `stringvalidator/formats` - Add new function `IsURN` to validate if a string is a valid URN. (GH-59)
+* `stringvalidator/formats` - Add new function `IsUUIDv4` to validate if a string is a valid UUIDv4. (GH-59)
+
 ### :information_source: **Notes**
 
-* `stringvalidator` - The validator `IsURN` has been deprecated in favor of `format.IsURN`. It will be removed in the next major release. (GH-59)
-* `stringvalidator` - The validator `IsUUID` has been deprecated in favor of `format.IsUUIDv4`. It will be removed in the next major release. (GH-59)
+* `stringvalidator` - The validator `IsURN` has been deprecated in favor of `formats.IsURN`. It will be removed in the next major release. (GH-59)
+* `stringvalidator` - The validator `IsUUID` has been deprecated in favor of `formats.IsUUIDv4`. It will be removed in the next major release. (GH-59)
 
 ## 1.15.0 (March 13, 2025)
 
@@ -91,7 +92,7 @@
 
 * `NullIfAttributeIsSet` - New validator that allows you to validate that an attribute is null if another attribute is set. This is available for all types of attributes. ([GH-83](https://github.com/orange-cloudavenue/terraform-provider-cloudavenue/issues/83))
 * `RequireIfAttributeIsSet` - New validator that allows you to validate that an attribute is required if another attribute is set. This is available for all types of attributes. ([GH-84](https://github.com/orange-cloudavenue/terraform-provider-cloudavenue/issues/84))
-* `stringvalidator/IsNetwork` - This is a new generic validator that checks if the value is a valid network format. Currently there is 4 formats that are supported: `IPV4`, `IPV4WithCIDR`, `IPV4WithNetmask` and `RFC1918`. ([GH-85](https://github.com/orange-cloudavenue/terraform-provider-cloudavenue/issues/85))
+* `stringvalidator/IsNetwork` - This is a new generic validator that checks if the value is a valid network formats. Currently there is 4 formats that are supported: `IPV4`, `IPV4WithCIDR`, `IPV4WithNetmask` and `RFC1918`. ([GH-85](https://github.com/orange-cloudavenue/terraform-provider-cloudavenue/issues/85))
 
 ### :tada: **Improvements**
 

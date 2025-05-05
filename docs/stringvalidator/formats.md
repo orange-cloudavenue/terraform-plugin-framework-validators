@@ -100,9 +100,9 @@ The following example demonstrates how to use the validator to check if a string
 func (r *xResource) Schema(ctx context.Context, _ resource.SchemaRequest, resp *resource.SchemaResponse) {
     resp.Schema = schema.Schema{
         (...)
-            "ids": schema.StringAttribute{
+            "id": schema.StringAttribute{
                 Optional:            true,
-                MarkdownDescription: "IDS can be an urn or uuid format ...",
+                MarkdownDescription: "ID can be an urn or uuid format ...",
                 Validators: []validator.String{
                     fstringvalidator.Formats(
                         []fstringvalidator.FormatsValidatorType{

@@ -163,7 +163,7 @@ func TestFormatsValidatorDescription(t *testing.T) {
 			},
 		},
 		"uuid-or-urn": {
-			description: "The value must respect at least one of the following rules :\nmust be a valid UUID v4, must be a valid URN",
+			description: "The value must respect at least one of the following rules : must be a valid UUID v4, must be a valid URN",
 			Formats: []stringvalidator.FormatsValidatorType{
 				stringvalidator.FormatsIsUUIDv4,
 				stringvalidator.FormatsIsURN,

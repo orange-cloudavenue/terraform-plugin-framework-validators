@@ -1,23 +1,23 @@
 ```release-note:feature
-`stringvalidator` - Add new `format` validator to validate strings against specific formats (e.g., Base64, UUIDv4, URN ).
+`stringvalidator` - Add new `formats` validator to validate strings against specific formats (e.g., Base64, UUIDv4, URN ).
 ```
 
 ```release-note:feature
-`stringvalidator/format` - Add new function `IsBase64` to validate if a string is a valid Base64 encoded string.
+`stringvalidator/formats` - Add new function `IsBase64` to validate if a string is a valid Base64 encoded string.
 ```
 
 ```release-note:feature
-`stringvalidator/format` - Add new function `IsUUIDv4` to validate if a string is a valid UUIDv4.
+`stringvalidator/formats` - Add new function `IsUUIDv4` to validate if a string is a valid UUIDv4.
 ```
 
 ```release-note:feature
-`stringvalidator/format` - Add new function `IsURN` to validate if a string is a valid URN.
+`stringvalidator/formats` - Add new function `IsURN` to validate if a string is a valid URN.
 ```
 
 ```release-note:note
-`stringvalidator` - The validator `IsUUID` has been deprecated in favor of `format.IsUUIDv4`. It will be removed in the next major release.
+`stringvalidator` - The validator `IsUUID` has been deprecated in favor of `formats.IsUUIDv4`. It will be removed in the next major release.
 ```
 
 ```release-note:note
-`stringvalidator` - The validator `IsURN` has been deprecated in favor of `format.IsURN`. It will be removed in the next major release.
+`stringvalidator` - The validator `IsURN` has been deprecated in favor of `formats.IsURN`. It will be removed in the next major release.
 ```
