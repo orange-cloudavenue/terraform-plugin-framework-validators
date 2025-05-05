@@ -1,4 +1,16 @@
 ## 1.16.0 (Unreleased)
+
+### :rocket: **New Features**
+
+* `stringvalidator/format` - Add new function `IsBase64` to validate if a string is a valid Base64 encoded string. (GH-59)
+* `stringvalidator/format` - Add new function `IsURN` to validate if a string is a valid URN. (GH-59)
+* `stringvalidator/format` - Add new function `IsUUIDv4` to validate if a string is a valid UUIDv4. (GH-59)
+* `stringvalidator` - Add new `format` validator to validate strings against specific formats (e.g., Base64, UUIDv4, URN ). (GH-59)
+### :information_source: **Notes**
+
+* `stringvalidator` - The validator `IsURN` has been deprecated in favor of `format.IsURN`. It will be removed in the next major release. (GH-59)
+* `stringvalidator` - The validator `IsUUID` has been deprecated in favor of `format.IsUUIDv4`. It will be removed in the next major release. (GH-59)
+
 ## 1.15.0 (March 13, 2025)
 
 ### :rocket: **New Features**
