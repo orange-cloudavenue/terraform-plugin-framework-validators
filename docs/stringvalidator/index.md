@@ -33,10 +33,11 @@ import (
 
 ### String
 
-- [`IsURN`](isurn.md) - This validator is used to check if the string is a valid URN.
-- [`IsUUID`](isuuid.md) - This validator is used to check if the string is a valid UUID.
+- [`IsURN`](isurn.md) - (**DEPRECATED**) This validator is used to check if the string is a valid URN (Use `Formats` validator instead).
+- [`IsUUID`](isuuid.md) - (**DEPRECATED**) This validator is used to check if the string is a valid UUID (Use `Formats` validator instead).
 - [`PrefixContains`](prefixcontains.md) - This validator is used to check if the string contains prefix in the given value.
 - [`Cases`](cases.md) - This validator is a generic validator for checking if the string respects a case.
+- [`Formats`](formats.md) - This validator is a generic validator for checking if the string respects of a format.
 
 ### Special
 

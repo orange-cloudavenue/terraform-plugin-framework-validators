@@ -6,7 +6,7 @@ hide:
 
 !!! quote inline end "Released in v1.12.0"
 
-This validator is a generic validator for checking if the string is a valid network format.
+This validator is used to check if the string contains or does not contain certain characters.
 
 ## How to use it
 
