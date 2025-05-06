@@ -1,4 +1,9 @@
 ## 1.17.0 (Unreleased)
+### :information_source: **Notes**
+
+* `stringvalidator` - Fix documentation for formats functions to use the correct function names. (GH-62)
+* `stringvalidator` - Updated deprecation warnings for IsURN and IsUUID to use the new `urn` and `uuid` validators. (GH-62)
+
 ## 1.16.0 (May  5, 2025)
 
 ### :rocket: **New Features**
