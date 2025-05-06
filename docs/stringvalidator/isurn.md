@@ -8,7 +8,7 @@ hide:
 
 !!! warning
 
-    Now this validator is deprecated, please use `formats.IsURN` instead
+    Now this validator is deprecated, please use `FormatsIsURN` instead
 
 This validator is used to check if the string is a valid URN.
 

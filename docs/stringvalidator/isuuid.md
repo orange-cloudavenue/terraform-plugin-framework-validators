@@ -8,7 +8,7 @@ hide:
 
 !!! warning
 
-    Now this validator is deprecated, please use `formats.IsUUIDv4` instead
+    Now this validator is deprecated, please use `FormatsIsUUIDv4` instead
 
 This validator is used to check if the string is a valid (v4) UUID.
 

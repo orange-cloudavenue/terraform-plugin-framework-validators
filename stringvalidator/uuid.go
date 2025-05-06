@@ -21,6 +21,9 @@ returns a validator which ensures that the configured attribute
 value is a valid (v4) UUID.
 
 Null (unconfigured) and unknown (known after apply) values are skipped.
+
+Deprecated: This function is deprecated and will be removed in a future version.
+Use `FormatsIsUUIDv4` instead.
 */
 func IsUUID() validator.String {
 	return &common.RegexValidator{
