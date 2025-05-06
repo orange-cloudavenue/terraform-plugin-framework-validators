@@ -29,7 +29,7 @@ func (r *xResource) Schema(ctx context.Context, _ resource.SchemaRequest, resp *
                 Validators: []validator.String{
                     fstringvalidator.Formats(
                         []fstringvalidator.FormatsValidatorType{
-                            fstringvalidator.IsBase64,
+                            fstringvalidator.FormatsIsBase64,
                         }, 
                         false,
                     ),
@@ -52,7 +52,7 @@ func (r *xResource) Schema(ctx context.Context, _ resource.SchemaRequest, resp *
             Validators: []validator.String{  
                 fstringvalidator.Formats(  
                     []fstringvalidator.FormatsValidatorType{  
-                        fstringvalidator.IsUUIDv4,  
+                        fstringvalidator.FormatsIsUUIDv4,  
                     }, 
                     false,
                 ),
@@ -78,7 +78,7 @@ func (r *xResource) Schema(ctx context.Context, _ resource.SchemaRequest, resp *
             Validators: []validator.String{
                 fstringvalidator.Formats(
                     []fstringvalidator.FormatsValidatorType{
-                        fstringvalidator.IsURN,
+                        fstringvalidator.FormatsIsURN,
                     }, 
                     false,
                 ),
@@ -106,8 +106,8 @@ func (r *xResource) Schema(ctx context.Context, _ resource.SchemaRequest, resp *
                 Validators: []validator.String{
                     fstringvalidator.Formats(
                         []fstringvalidator.FormatsValidatorType{
-                            fstringvalidator.IsURN,
-                            fstringvalidator.IsUUIDv4,
+                            fstringvalidator.FormatsIsURN,
+                            fstringvalidator.FormatsIsUUIDv4,
                         }, 
                         true,
                     ),

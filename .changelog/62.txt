@@ -1,0 +1,7 @@
+```release-note:note
+`stringvalidator` - Updated deprecation warnings for IsURN and IsUUID to use the new `urn` and `uuid` validators.
+```
+
+```release-note:note
+`stringvalidator` - Fix documentation for formats functions to use the correct function names.
+```

@@ -21,6 +21,9 @@ returns a validator which ensures that the configured attribute
 value is a valid URN.
 
 Null (unconfigured) and unknown (known after apply) values are skipped.
+
+Deprecated: This function is deprecated and will be removed in a future version.
+Use `FormatsIsURN` instead.
 */
 func IsURN() validator.String {
 	return &common.RegexValidator{
