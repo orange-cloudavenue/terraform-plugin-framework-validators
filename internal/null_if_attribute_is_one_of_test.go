@@ -377,7 +377,7 @@ func TestNullIfAttributeIsOneOfValidator(t *testing.T) {
 					fmt.Sprintf("Invalid configuration for attribute %s", test.req.Path),
 					test.expErrorMessage,
 				)) {
-					t.Fatal(fmt.Sprintf("expected error(s) to contain (%s), got none. Error message is : (%s)", test.expErrorMessage, res.Diagnostics.Errors())) //nolint:gosimple
+					t.Fatalf("expected error(s) to contain (%s), got none. Error message is : (%s)", test.expErrorMessage, res.Diagnostics.Errors())
 				}
 			}
 
