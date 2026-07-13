@@ -25,7 +25,7 @@ jobs:
       ref: ${{ github.ref }}
       repository: ${{ github.repository }}
     secrets:
-      TOKEN: ${{ secrets.CHANGELOG_PAT }}
+      TOKEN: ${{ secrets.RELEASE_CI_PAT }}
 
   golang-ci-lint:
     needs: [pre-check]
@@ -52,7 +52,7 @@ jobs:
       ref: ${{ github.ref }}
       repository: ${{ github.repository }}
     secrets:
-      TOKEN: ${{ secrets.CHANGELOG_PAT }}
+      TOKEN: ${{ secrets.RELEASE_CI_PAT }}
 
   release-notes:
     needs: [pre-check]
@@ -62,7 +62,7 @@ jobs:
       tag: ${{ github.event.inputs.tag }}
       repository: ${{ github.repository }}
     secrets:
-      TOKEN: ${{ secrets.CHANGELOG_PAT }}
+      TOKEN: ${{ secrets.RELEASE_CI_PAT }}
 
   make-release:
     needs: [release-notes]
@@ -72,7 +72,7 @@ jobs:
       artifact-name: ${{ needs.release-notes.outputs.artifact-name }}
       repository: ${{ github.repository }}
     secrets:
-      TOKEN: ${{ secrets.CHANGELOG_PAT }}
+      TOKEN: ${{ secrets.RELEASE_CI_PAT }}
 
   changelog-newversion:
     needs: [make-release]
@@ -80,7 +80,7 @@ jobs:
     with:
       tag: ${{ github.event.inputs.tag }}
     secrets:
-      TOKEN: ${{ secrets.CHANGELOG_PAT }}
+      TOKEN: ${{ secrets.RELEASE_CI_PAT }}
 
   publish-doc:
     needs: [make-release]
