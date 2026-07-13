@@ -1,0 +1,35 @@
+```release-note:enhancement
+`boolvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators.
+```
+
+```release-note:enhancement
+`float64validator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators.
+```
+
+```release-note:enhancement
+`int32validator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators.
+```
+
+```release-note:enhancement
+`int64validator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators.
+```
+
+```release-note:enhancement
+`listvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators.
+```
+
+```release-note:enhancement
+`mapvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators.
+```
+
+```release-note:enhancement
+`objectvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators.
+```
+
+```release-note:enhancement
+`setvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators.
+```
+
+```release-note:enhancement
+`stringvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators.
+```
