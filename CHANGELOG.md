@@ -1,4 +1,16 @@
 ## 1.17.0 (Unreleased)
+
+### :tada: **Improvements**
+
+* `boolvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators. (GH-83)
+* `float64validator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators. (GH-83)
+* `int32validator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators. (GH-83)
+* `int64validator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators. (GH-83)
+* `listvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators. (GH-83)
+* `mapvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators. (GH-83)
+* `objectvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators. (GH-83)
+* `setvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators. (GH-83)
+* `stringvalidator` - Add `NullIfAttributeMatches` and `NullIfAttributeMatchesWithDescription` validators. (GH-83)
 ### :information_source: **Notes**
 
 * `stringvalidator` - Fix documentation for formats functions to use the correct function names. (GH-62)
