@@ -1,4 +1,5 @@
-## 1.17.0 (Unreleased)
+## 1.18.0 (Unreleased)
+## 1.17.0 (July 15, 2026)
 
 ### :tada: **Improvements**
 
