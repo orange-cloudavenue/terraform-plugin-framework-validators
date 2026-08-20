@@ -1,0 +1,3 @@
+```release-note:dependency
+deps: bumps github.com/hashicorp/terraform-plugin-framework, github.com/hashicorp/terraform-plugin-framework-validators, github.com/hashicorp/terraform-plugin-go from  to 
+```
