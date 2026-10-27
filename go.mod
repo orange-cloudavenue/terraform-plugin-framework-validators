@@ -1,12 +1,12 @@
 module github.com/orange-cloudavenue/terraform-plugin-framework-validators
 
-go 1.22.0
+go 1.23.0
 
 toolchain go1.23.1
 
 require (
 	github.com/hashicorp/terraform-plugin-framework v1.14.1
-	github.com/hashicorp/terraform-plugin-framework-validators v0.17.0
+	github.com/hashicorp/terraform-plugin-framework-validators v0.18.0
 	github.com/hashicorp/terraform-plugin-go v0.26.0
 )
 
